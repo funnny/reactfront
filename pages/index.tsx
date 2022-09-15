@@ -1,9 +1,11 @@
+import DatePicker from "react-datepicker"
 
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Home() {
     const payType = [
-        {name: '카드', value: '01'},
-        {name: '현금', value: '01'},
+        {name: '카드', value: '01', type: 'card'},
+        {name: '현금', value: '01', type: 'cash'},
     ]
     // const cardList = [
     //     {name: "삼성카드", value: "01"},
@@ -17,8 +19,13 @@ export default function Home() {
     //     {name: "현대카드", value: "09"},
     // ]
 
+    const dateChange = () => {
+        console.log('datechange')
+    }
+
     return (
         <div>
+            <DatePicker onChange={dateChange}></DatePicker>
             {/*<select>*/}
             {/*    {payType.map((item, index) => (*/}
             {/*        <option value={item.value}>{item.name}</option>*/}
@@ -26,19 +33,25 @@ export default function Home() {
             {/*</select>*/}
             {
                 payType.map((item, index) => (
-                    <button value={item.value}>{item.name}</button>
+                    <input
+                    type='radio'
+                    id={item.type}
+                    value={item.value}
+                    />
                 ))
             }
+
         </div>
     )
 
 }
 
 // export async function getServerSideProps() {
-    // const { results } = await (
-    //     await fetch(`http://localhost:3000/api/movies`)
-    // ).json();
-    // return {
+// const { results } = await (
+//     await fetch(`http://localhost:3000/api/movies`)
+// ).json();
+// return {
+
     //     props: {
     //         results,
     //     },
