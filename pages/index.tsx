@@ -1,6 +1,11 @@
 import DatePicker from "react-datepicker"
+import {useState} from "react"
 
 export default function Home() {
+    const [typeValue, setTypeValue] = useState('01')
+    const typeOnChanged = (e) => {
+        console.log(e.target.value)
+    }
     const payType = [
         {name: '카드', value: '01', type: 'card'},
         {name: '현금', value: '02', type: 'cash'},
@@ -13,7 +18,8 @@ export default function Home() {
                 type='radio'
                 id='typeRadio'
                 value={item.value}
-                checked={payType.value === item.value}
+
+                onChange={typeOnChanged}
             />
         )
     })
