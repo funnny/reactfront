@@ -1,7 +1,5 @@
 import DatePicker from "react-datepicker"
 
-import "react-datepicker/dist/react-datepicker.css";
-
 export default function Home() {
     const payType = [
         {name: '카드', value: '01', type: 'card'},
